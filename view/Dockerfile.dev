@@ -1,0 +1,12 @@
+# build stage
+FROM node:12-alpine
+
+WORKDIR /app
+COPY package.json ./
+COPY yarn.lock ./
+RUN npm install
+# RUN yarn add -D esbuild-linux-64
+COPY . .
+
+# RUN node /app/node_modules/esbuild/install.js
+CMD ["npm", "run", "dev"]
