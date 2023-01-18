@@ -75,27 +75,8 @@ VITE_PROPELAUTH_URL=
 
 ## NL2SQL pipeline
 
-TODO
-
-1. Few short learning -> should trained-model
-2. Enforce json output like, if that doesn't fit, re-ask for it ?
-
-```
-translate
-    | openAIModel
-        predict
-            preparePrompt
-                getDatabaseSchema
-                selectTables
-                    render openai.select_tables.ejs
-                    call
-                    tablesSelected
-                extractConditionsValues
-                    render openai.where.ejs
-                    call
-                connect to database
-                    fetchClosedValues
-                getValidatedQueriesExamplesOnDatabase
-                render openai.default.ejs
-            call
-```
+1. getDatabaseSchema
+2. selectTables (openai.select_tables.ejs)
+3. extractConditionsValues (openai.where.ejs)
+4. fetchClosedValues (from database)
+5. getValidatedQueriesExamplesOnDatabase (openai.default.ejs)
