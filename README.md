@@ -1,10 +1,13 @@
-# Olympe
+# Olympe 
 
-Try it here 👉 [olym.pe](https://www.olym.pe)
+Try it here 👉 [olym.pe](https://www.olym.pe) 
 
 If you are interested in this project, or just want to discuss, contact me on [twitter](https://twitter.com/benderville)
 
+🚧 It's a proof-of-concept, there is lots of work to be done here... 🚧
+
 ## A natural language interface to query databases
+
 
 - Multiple databases support
   - Postgres
