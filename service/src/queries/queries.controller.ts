@@ -13,7 +13,7 @@ import { PostgresService } from '../databases/implementations/postgresql';
 import { Configuration, OpenAIApi } from 'openai';
 import { QueriesService } from './queries.service';
 import { ConfigService } from '@nestjs/config';
-import { OpenAIModel, OpenAITrainedModel } from './models/openai';
+import { OpenAIModel } from './models/openai';
 
 type SQLRequesParams = {
   query: string;
@@ -61,7 +61,6 @@ export class QueryController {
     private queriesService: QueriesService,
     private configService: ConfigService,
     private openAIModel: OpenAIModel,
-    private openAITrainedModel: OpenAITrainedModel,
   ) {
     const configuration = new Configuration({
       apiKey: configService.get<string>('OPENAI_API_KEY'),
@@ -94,12 +93,7 @@ export class QueryController {
     }
 
     try {
-      let output;
-      if (params.model && params.model.indexOf(':') !== -1) {
-        output = await this.openAITrainedModel.predict(querySaved, params);
-      } else {
-        output = await this.openAIModel.predict(querySaved, params);
-      }
+      let output = await this.openAIModel.predict(querySaved, params);
       return {
         id: querySaved.id,
         output: output,

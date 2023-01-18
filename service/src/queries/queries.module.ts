@@ -5,7 +5,7 @@ import { Prediction, Query } from './queries.entity';
 
 import { QueriesService } from './queries.service';
 import { ConfigService } from '@nestjs/config';
-import { OpenAIModel, OpenAITrainedModel } from './models/openai';
+import { OpenAIModel } from './models/openai';
 import { DatabasesModule } from '../databases/databases.module';
 import { TablesModule } from '../tables/tables.module';
 
@@ -15,7 +15,7 @@ import { TablesModule } from '../tables/tables.module';
     DatabasesModule,
     TablesModule,
   ],
-  providers: [QueriesService, ConfigService, OpenAIModel, OpenAITrainedModel],
+  providers: [QueriesService, ConfigService, OpenAIModel],
   controllers: [QueryController],
 })
 export class QueryModule {}

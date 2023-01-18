@@ -82,7 +82,6 @@ TODO
 
 ```
 translate
-    | openAITrainedModel -> not used...same as non trained, except have prepareTrainingSets
     | openAIModel
         predict
             preparePrompt
