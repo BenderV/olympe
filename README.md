@@ -15,7 +15,7 @@
 
 ## Preview
 
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/2799516/213215062-7674d42d-24ba-4fa1-b9e7-11708274bb80.png">
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/2799516/213237779-d15619b0-d32e-41ef-a3b4-d2ad1499dfbf.png">
 
 ## Tech stack
 
