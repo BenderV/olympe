@@ -15,6 +15,8 @@ export interface Database {
   id: number;
   name: string;
   tables?: Table[];
+  engine: string;
+  details: any;
 }
 
 // DEFINE STATES

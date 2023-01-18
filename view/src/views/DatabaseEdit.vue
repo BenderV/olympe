@@ -98,7 +98,7 @@ const {
 
 const isNew = computed(() => route.params.id === "new");
 if (!isNew.value) {
-  const databaseId = parseInt(route.params.id);
+  const databaseId = parseInt(route.params.id as string);
   console.log("databaseId", databaseId);
   await selectDatabaseById(databaseId);
   // Copy the databaseSelected to the database

@@ -31,7 +31,7 @@ configure({
 
 defineRule("required", required);
 
-export interface Props {
+interface Props {
   name: string;
   modelValue: string | number;
   placeholder?: string;
