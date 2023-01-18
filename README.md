@@ -1,5 +1,7 @@
 # Olympe
 
+Try it here 👉 [olym.pe](https://www.olym.pe)
+
 ## A natural language interface to query databases
 
 - Multiple databases support
@@ -19,11 +21,11 @@
 
 ## Tech stack
 
+- AI based on OpenAI's GPT-3 API
 - Frontend: Vue3, Vite
 - Backend: NestJS
 - Database: Postgres
 - Upload Service: sanic (python)
-- Based on OpenAI's GPT-3 API
 
 ## Code structure
 
