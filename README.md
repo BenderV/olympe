@@ -8,12 +8,17 @@ If you are interested in this project, or just want to discuss, contact me on [t
 
 ## A natural language interface to query databases
 
-- Multiple databases support
-  - Postgres
-  - BigQuery (wip)
+### Features
+
 - Support high number of tables
 - Syntax support for entities ("Netflix" will match "net-flix")
 - Use of database values and types to improve the query generation
+
+### Nice to have
+
+- Multiple databases support
+  - Postgres
+  - BigQuery (wip)
 - Plot results in a table or in a chart depending on the query/results
 - Possibility to edit & correct the sql query
 - Upload of CSV
