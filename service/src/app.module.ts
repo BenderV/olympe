@@ -99,8 +99,15 @@ const pinoPrettyConfig = {
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
+        // isLocal if  database, host.docker.internal or localhost
         const isLocal =
+          configService.get<string>('DATABASE_URL').indexOf('database/') !==
+            -1 ||
+          configService
+            .get<string>('DATABASE_URL')
+            .indexOf('host.docker.internal') !== -1 ||
           configService.get<string>('DATABASE_URL').indexOf('localhost') !== -1;
+
         const sslConfig = isLocal
           ? {}
           : {

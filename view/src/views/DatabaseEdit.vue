@@ -31,6 +31,7 @@
         v-model="database.details.user"
         rules="required"
       />
+      <base-input name="Password" v-model="database.details.password" />
       <base-input
         name="Database"
         v-model="database.details.database"
@@ -83,8 +84,9 @@ const database = ref({
   engine: "postgres",
   details: {
     host: "",
-    port: 5439,
+    port: 5432,
     user: "",
+    password: "",
     database: "",
   },
 } as any);

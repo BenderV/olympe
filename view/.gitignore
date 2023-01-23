@@ -6,3 +6,4 @@ dist-ssr
 yarn-error.log
 .tmp
 .env
+.env.production

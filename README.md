@@ -88,6 +88,14 @@ PROPELAUTH_ISSUER=
 VITE_PROPELAUTH_URL=
 ```
 
+### Docker compose
+
+If you prefer to use docker-compose, you can use the following command:
+
+```
+docker-compose up --build
+```
+
 ## NL2SQL pipeline
 
 1. getDatabaseSchema

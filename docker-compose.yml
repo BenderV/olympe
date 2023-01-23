@@ -1,0 +1,34 @@
+version: "3.4"
+services:
+  database:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: olympe
+  service:
+    build: ./service
+    ports:
+      - "5001:5001"
+    environment:
+      - DATABASE_URL=postgresql://user:password@database/olympe
+      # - OPENAI_API_KEY=sk-XXXXXXXX
+    depends_on:
+      - database
+  view:
+    build: ./view
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - service
+  # uploader:
+  #   build: ./uploader
+  #   ports:
+  #     - "5000:5000"
+  #   depends_on:
+  #     - database
