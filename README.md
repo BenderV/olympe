@@ -1,13 +1,12 @@
-# Olympe 
+# Olympe
 
-Try it here 👉 [olym.pe](https://www.olym.pe) 
+Try it here 👉 [olym.pe](https://www.olym.pe)
 
 If you are interested in this project, or just want to discuss, contact me on [twitter](https://twitter.com/benderville)
 
 🚧 It's a proof-of-concept, there is lots of work to be done here... 🚧
 
 ## A natural language interface to query databases
-
 
 - Multiple databases support
   - Postgres
@@ -57,10 +56,6 @@ in `/service`
 ```
 OPENAI_API_KEY=sk-...
 DATABASE_URL=postgres://...
-PROPELAUTH_URL=
-PROPELAUTH_APIKEY=
-PROPELAUTH_VERIFIER_KEY=
-PROPELAUTH_ISSUER=
 ```
 
 - `yarn` -- install dependencies
@@ -71,14 +66,27 @@ PROPELAUTH_ISSUER=
 
 in `/view`
 
-- create a `.env` file with the following content:
+- `yarn` -- install dependencies
+- `yarn dev` -- run the front
+
+### Auth (optional)
+
+You can add users management with Propelauth by adding the following env variables:
+
+/service/.env
+
+```
+PROPELAUTH_URL=
+PROPELAUTH_APIKEY=
+PROPELAUTH_VERIFIER_KEY=
+PROPELAUTH_ISSUER=
+```
+
+/view/.env
 
 ```
 VITE_PROPELAUTH_URL=
 ```
-
-- `yarn` -- install dependencies
-- `yarn dev` -- run the front
 
 ## NL2SQL pipeline
 

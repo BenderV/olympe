@@ -23,19 +23,19 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   pictureUrl: string;
 
-  @Column()
+  @Column({ default: false })
   emailConfirmed: boolean;
 
-  @Column()
+  @Column({ default: false })
   enabled: boolean;
 
-  @Column()
+  @Column({ default: false })
   locked: boolean;
 
-  @Column()
+  @Column({ default: false })
   mfaEnabled: boolean;
 
   @Column()

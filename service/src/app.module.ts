@@ -46,7 +46,6 @@ export class AuthMiddleware implements NestMiddleware {
         //     userRole: 2
         //   }
         // }
-
         user = {
           ...user,
           ...userMetadata,
@@ -114,7 +113,7 @@ const pinoPrettyConfig = {
             };
 
         return {
-          logging: true,
+          logging: process.env.TYPEORM_LOGGING === 'true',
           type: 'postgres',
           entities: [
             Database,
