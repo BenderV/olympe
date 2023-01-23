@@ -74,6 +74,14 @@ in `/view`
 - `yarn` -- install dependencies
 - `yarn dev` -- run the front
 
+### Database
+
+You will need to add a database to start using the service
+
+### Upload service
+
+Check [README.md](uploader/README.md) in `/uploader` for more details
+
 ### Auth (optional)
 
 You can add users management with Propelauth by adding the following env variables:
@@ -100,6 +108,8 @@ If you prefer to use docker-compose, you can use the following command:
 ```
 docker-compose up --build
 ```
+
+You can modify the `docker-compose.yml` file to add variables or modify the database url.
 
 ## NL2SQL pipeline
 
