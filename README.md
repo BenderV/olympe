@@ -88,7 +88,7 @@ PROPELAUTH_ISSUER=
 VITE_PROPELAUTH_URL=
 ```
 
-### Docker compose
+### Docker compose (alternative)
 
 If you prefer to use docker-compose, you can use the following command:
 
