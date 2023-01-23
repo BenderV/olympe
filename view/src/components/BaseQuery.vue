@@ -69,7 +69,7 @@
       @click="query()"
       :disabled="queryLoading"
     >
-      <RefreshIcon
+      <ArrowPathIcon
         v-if="queryLoading"
         class="animate-reverse-spin h-5 w-5 text-white mr-2"
       />
@@ -95,7 +95,8 @@ import { ref } from "vue";
 
 import { useDatabases } from "../stores/databases";
 import BaseSelector from "./BaseSelector.vue";
-import { RefreshIcon } from "@heroicons/vue/solid";
+import { ArrowPathIcon } from "@heroicons/vue/24/outline";
+import { Bars3Icon } from "@heroicons/vue/24/solid";
 
 const { databaseSelected, databases } = useDatabases();
 

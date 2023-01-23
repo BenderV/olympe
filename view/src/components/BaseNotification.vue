@@ -52,7 +52,7 @@
             ]"
           >
             <span class="sr-only">Dismiss</span>
-            <XIcon class="h-5 w-5" aria-hidden="true" />
+            <XMarkIcon class="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -61,11 +61,11 @@
 </template>
 <script setup lang="ts">
 import {
-  CloudUploadIcon,
+  CloudArrowUpIcon,
   CheckCircleIcon,
-  XIcon,
+  XMarkIcon,
   XCircleIcon,
-} from "@heroicons/vue/solid";
+} from "@heroicons/vue/24/solid";
 import { computed } from "vue";
 
 const props = defineProps({
@@ -130,7 +130,7 @@ const colorClass = (type, intensity) => {
 const iconComponent = computed(() => {
   if (props.color == "green") return CheckCircleIcon;
   else if (props.color == "red") return XCircleIcon;
-  else return CloudUploadIcon;
+  else return CloudArrowUpIcon;
 });
 
 const emits = defineEmits(["close"]);

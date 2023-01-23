@@ -81,8 +81,12 @@
               class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <span class="sr-only">Open main menu</span>
-              <MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-              <XIcon v-else class="block h-6 w-6" aria-hidden="true" />
+              <Bars3Icon
+                v-if="!open"
+                class="block h-6 w-6"
+                aria-hidden="true"
+              />
+              <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
             </DisclosureButton>
           </div>
         </div>
@@ -159,7 +163,7 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/vue";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { BellIcon, XMarkIcon, Bars3Icon } from "@heroicons/vue/24/outline";
 import { client, user, logout } from "../stores/client";
 const route = useRoute();
 const currentPath = computed(() => route.path);

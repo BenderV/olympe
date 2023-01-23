@@ -33,7 +33,10 @@ const databaseSelected: WritableComputedRef<Database> = computed({
     );
   },
   async set(database) {
+    console.log("databaseSelected set");
     await selectDatabaseById(database.id);
+    console.log("databaseSelected set done");
+    console.log(database);
   },
 });
 
@@ -51,12 +54,11 @@ const fetchDatabases = async ({ refresh }) => {
   if (databaseSelectedId.value === null) {
     databaseSelectedId.value = databases.value[0].id;
   }
-  // await addDatabaseSchema(databaseSelectedId.value);
 
   return databases.value;
 };
 
-const addDatabaseSchema = async (databaseId: number) => {
+export const addDatabaseSchema = async (databaseId: number) => {
   const database = databases.value.find(
     (database) => database.id === databaseId
   );
@@ -80,7 +82,7 @@ const updateScan = async () => {
 const selectDatabaseById = async (id: number) => {
   databaseSelectedId.value = id;
   localStorage.setItem("databaseId", id.toString());
-  addDatabaseSchema(databaseSelectedId.value);
+  await addDatabaseSchema(databaseSelectedId.value);
 };
 
 const updateDatabase = async (id: number, database: Database) => {
@@ -110,6 +112,7 @@ export const useDatabases = () => {
     databases,
     databaseSelected,
     selectDatabaseById,
+    addDatabaseSchema,
     updateDatabase,
     createDatabase,
     deleteDatabase,

@@ -1,5 +1,20 @@
 <template>
   <Form @submit="clickSave" class="max-w-7xl mx-auto">
+    <nav class="flex items-center justify-between px-4 sm:px-0">
+      <div class="-mt-px flex w-0 flex-1">
+        <a
+          @click.prevent="clickCancel"
+          class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-gray-500 hover:text-gray-700 cursor-pointer"
+        >
+          <ArrowLeftIcon
+            class="mr-3 h-5 w-5 text-gray-400"
+            aria-hidden="true"
+          />
+          Return to all databases
+        </a>
+      </div>
+    </nav>
+    <br />
     <div class="sm:col-span-6">
       <base-input name="Name" v-model="database.name" rules="required" />
       <base-input
@@ -66,6 +81,7 @@
 </template>
 
 <script setup lang="ts">
+import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 import { computed, defineComponent, ref } from "vue";
 import { useDatabases } from "../stores/databases";
 import { useRoute } from "vue-router";
@@ -101,7 +117,6 @@ const {
 const isNew = computed(() => route.params.id === "new");
 if (!isNew.value) {
   const databaseId = parseInt(route.params.id as string);
-  console.log("databaseId", databaseId);
   await selectDatabaseById(databaseId);
   // Copy the databaseSelected to the database
   database.value.id = databaseSelected.value.id;
@@ -114,6 +129,11 @@ const clickDelete = () => {
   if (deleteDatabase(database.value.id)) {
     router.push({ name: "DatabaseList" });
   }
+};
+
+// Redirect to /databases
+const clickCancel = () => {
+  router.push({ name: "DatabaseList" });
 };
 
 const clickSave = async () => {

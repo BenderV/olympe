@@ -8,7 +8,7 @@
       class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
     >
       <div class="space-y-1 text-center">
-        <CloudUploadIcon
+        <CloudArrowUpIcon
           class="mx-auto h-12 w-12 text-gray-400"
           aria-hidden="true"
         />
@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { CloudUploadIcon } from "@heroicons/vue/solid";
+import { CloudArrowUpIcon } from "@heroicons/vue/24/solid";
 
 import { onMounted, onUnmounted, ref } from "vue";
 import axios from "axios";

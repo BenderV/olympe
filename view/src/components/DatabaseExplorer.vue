@@ -45,11 +45,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useDatabases } from "../stores/databases";
 import { querySQL, queryText, runQuery } from "../stores/query";
 
-const { databaseSelected } = useDatabases();
+const { databaseSelected, addDatabaseSchema } = useDatabases();
 
 const showTableIndex = ref(0);
 
@@ -66,4 +66,15 @@ const onDblClick = (tableInd: number) => {
   queryText.value = `Display ${tableSelected.name}`;
   runQuery();
 };
+
+// On monted and on databaseSelected change, trigger addDatabaseSchema()
+watch(
+  () => databaseSelected.value,
+  (newDatabaseSelected) => {
+    if (newDatabaseSelected) {
+      addDatabaseSchema(newDatabaseSelected.id);
+    }
+  },
+  { immediate: true }
+);
 </script>
