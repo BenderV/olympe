@@ -29,7 +29,7 @@ export class QueriesService {
         prompt,
       },
     });
-    return cache?.output;
+    return cache?.value;
   }
 
   async writePredictionCache({

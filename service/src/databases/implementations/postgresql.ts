@@ -112,6 +112,20 @@ export class PostgresService extends DatabaseService {
     await this.client.query('CREATE EXTENSION IF NOT EXISTS pg_trgm;');
   }
 
+  /* Used for testing the SQL syntax / correctness */
+  async runQueryWithLimit1(sqlQuery: string) {
+    sqlQuery = replaceAll(sqlQuery, '`', '"').trim().replace(/;$/, '');
+    const sqlWrapper = `
+      SELECT *
+      FROM (
+        ${sqlQuery}
+      ) AS foo
+      LIMIT 1;
+    `;
+    const { rows } = await this.client.query(sqlWrapper);
+    return rows[0];
+  }
+
   async runQuery(sqlQuery: string) {
     // TODO: add pagination (OFFSET 5 ROWS FETCH FIRST 5 ROW ONLY)
     sqlQuery = replaceAll(sqlQuery, '`', '"').trim().replace(/;$/, '');

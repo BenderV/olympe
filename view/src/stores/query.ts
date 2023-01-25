@@ -17,6 +17,14 @@ export const queryError = ref(null);
 export const loading = ref(false);
 
 export const translate = async () => {
+  // Clean output
+  queryResults.value = null;
+  queryCount.value = null;
+  queryError.value = null;
+  querySQL.value = "";
+  queryTextTranslation.value = "";
+  queryValidated.value = false;
+
   console.log(databaseSelected.value);
   loading.value = true;
   await axios
@@ -49,8 +57,10 @@ export const loadQuery = async (id: number) => {
   selectDatabaseById(query.databaseId);
   queryId.value = query.id;
   queryText.value = query.query;
-  queryTextTranslation.value = sqlPrettier.format(query.sql);
-  querySQL.value = queryTextTranslation.value;
+  if (query.sql) {
+    queryTextTranslation.value = sqlPrettier.format(query.sql);
+    querySQL.value = queryTextTranslation.value;
+  }
   queryValidated.value = query.validated;
   if (querySQL.value) {
     await runQuery();
