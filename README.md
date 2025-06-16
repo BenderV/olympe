@@ -1,4 +1,4 @@
-# Olympe
+# Olympe is Archived. Check [Myriade](https://www.myriade.ai) for fully agentic data analyst.
 
 ## A natural language interface to query databases
 
